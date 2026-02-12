@@ -24,11 +24,11 @@ Query OK, 0 rows affected (0.041 sec)
 
 # inserting values
 INSERT INTO students VALUES
-    -> (1,'Hemesh','hemesh22@gmail.com','9123456780','CSE'),
-    -> (2,'Aarav','aarav99@gmail.com','9234567810','CSE'),
-    -> (3,'Meghana','meghana15@gmail.com','9345678120','ECE'),
-    -> (4,'Rohit','rohit715@gmail.com','9456781230','EEE'),
-    -> (5,'Sneha','sneha88@gmail.com','9567812340','IT');
+    -> (1,'Vignesh Varma','vigneshvarma@gmail.com','9123456780','CSE'),
+    -> (2,'Charan','charan99@gmail.com','9234567810','CSE'),
+    -> (3,'Ananya','ananya15@gmail.com','9345678120','ECE'),
+    -> (4,'Rahul','rahul715@gmail.com','9456781230','EEE'),
+    -> (5,'Priya','priya88@gmail.com','9567812340','IT');
 Query OK, 5 rows affected (0.013 sec)
 Records: 5  Duplicates: 0  Warnings: 0
 
@@ -43,15 +43,15 @@ Records: 5  Duplicates: 0  Warnings: 0
 
 # viewing tables
  SELECT* FROM students;
-+----+---------+-----------------------+------------+------------+
-| id | name    | email                 | Phone      | Department |
-+----+---------+-----------------------+------------+------------+
-|  1 | Hemesh  | hemesh22@gmail.com    | 9123456780 | CSE        |
-|  2 | Aarav   | aarav99@gmail.com     | 9234567810 | CSE        |
-|  3 | Meghana | meghana15@gmail.com   | 9345678120 | ECE        |
-|  4 | Rohit   | rohit715@gmail.com    | 9456781230 | EEE        |
-|  5 | Sneha   | sneha88@gmail.com     | 9567812340 | IT         |
-+----+---------+-----------------------+------------+------------+
++----+----------------+---------------------------+------------+------------+
+| id | name           | email                     | Phone      | Department |
++----+----------------+---------------------------+------------+------------+
+|  1 | Vignesh Varma  | vigneshvarma@gmail.com    | 9123456780 | CSE        |
+|  2 | Charan         | charan99@gmail.com        | 9234567810 | CSE        |
+|  3 | Ananya         | ananya15@gmail.com        | 9345678120 | ECE        |
+|  4 | Rahul          | rahul715@gmail.com        | 9456781230 | EEE        |
+|  5 | Priya          | priya88@gmail.com         | 9567812340 | IT         |
++----+----------------+---------------------------+------------+------------+
 5 rows in set (0.001 sec)
 
 SELECT*FROM Course;
@@ -68,12 +68,12 @@ SELECT*FROM Course;
 
 # using SELECT queries
  SELECT*FROM students WHERE Department='CSE';
-+----+--------+--------------------+------------+------------+
-| id | name   | email              | Phone      | Department |
-+----+--------+--------------------+------------+------------+
-|  1 | Hemesh | hemesh22@gmail.com | 9123456780 | CSE        |
-|  2 | Aarav  | aarav99@gmail.com  | 9234567810 | CSE        |
-+----+--------+--------------------+------------+------------+
++----+----------------+---------------------------+------------+------------+
+| id | name           | email                     | Phone      | Department |
++----+----------------+---------------------------+------------+------------+
+|  1 | Vignesh Varma  | vigneshvarma@gmail.com    | 9123456780 | CSE        |
+|  2 | Charan         | charan99@gmail.com        | 9234567810 | CSE        |
++----+----------------+---------------------------+------------+------------+
 2 rows in set (0.001 sec)
 
 SELECT*FROM Course ORDER BY Course_name ASC;
@@ -89,25 +89,25 @@ SELECT*FROM Course ORDER BY Course_name ASC;
 5 rows in set (0.001 sec)
 
 SELECT name,email FROM students WHERE email like '%gmail.com';
-+---------+-----------------------+
-| name    | email                 |
-+---------+-----------------------+
-| Hemesh  | hemesh22@gmail.com    |
-| Aarav   | aarav99@gmail.com     |
-| Meghana | meghana15@gmail.com   |
-| Rohit   | rohit715@gmail.com    |
-| Sneha   | sneha88@gmail.com     |
-+---------+-----------------------+
++----------------+---------------------------+
+| name           | email                     |
++----------------+---------------------------+
+| Vignesh Varma  | vigneshvarma@gmail.com    |
+| Charan         | charan99@gmail.com        |
+| Ananya         | ananya15@gmail.com        |
+| Rahul          | rahul715@gmail.com        |
+| Priya          | priya88@gmail.com         |
++----------------+---------------------------+
 5 rows in set (0.001 sec)
 
 SELECT*FROM students LIMIT 3;
-+----+---------+-----------------------+------------+------------+
-| id | name    | email                 | Phone      | Department |
-+----+---------+-----------------------+------------+------------+
-|  1 | Hemesh  | hemesh22@gmail.com    | 9123456780 | CSE        |
-|  2 | Aarav   | aarav99@gmail.com     | 9234567810 | CSE        |
-|  3 | Meghana | meghana15@gmail.com   | 9345678120 | ECE        |
-+----+---------+-----------------------+------------+------------+
++----+----------------+---------------------------+------------+------------+
+| id | name           | email                     | Phone      | Department |
++----+----------------+---------------------------+------------+------------+
+|  1 | Vignesh Varma  | vigneshvarma@gmail.com    | 9123456780 | CSE        |
+|  2 | Charan         | charan99@gmail.com        | 9234567810 | CSE        |
+|  3 | Ananya         | ananya15@gmail.com        | 9345678120 | ECE        |
++----+----------------+---------------------------+------------+------------+
 3 rows in set (0.001 sec)
 
 SELECT Department,COUNT(*) as Total_Students
@@ -141,39 +141,39 @@ SELECT COUNT(DISTINCT Department) AS Department_Count FROM students;
 
 #INNER JOIN
 SELECT s.id,s.name AS Student_Name,c.Course_name,c.Faculty_id,c.Faculty_email FROM students s INNER JOIN Course c ON s.id=c.Student_ID;
-+----+--------------+----------------------------------------+------------+--------------------+
-| id | Student_Name | Course_name                            | Faculty_id | Faculty_email      |
-+----+--------------+----------------------------------------+------------+--------------------+
-|  1 | Hemesh       | OPERATING SYSTEM                       |        101 | prof_smith@vtu.edu |
-|  2 | Aarav        | WEB AND MOBILE APPLICATION DEVELOPMENT |        102 | prof_jones@vtu.edu |
-|  3 | Meghana      | DATABASE MANAGEMENT                    |        101 | prof_smith@vtu.edu |
-|  5 | Sneha        | DATA STRUCTURES                        |        104 | prof_leila@vtu.edu |
-|  4 | Rohit        | DIGITAL ELECTRONICS                    |        103 | prof_kumar@vtu.edu |
-+----+--------------+----------------------------------------+------------+--------------------+
++----+----------------+----------------------------------------+------------+--------------------+
+| id | Student_Name   | Course_name                            | Faculty_id | Faculty_email      |
++----+----------------+----------------------------------------+------------+--------------------+
+|  1 | Vignesh Varma  | OPERATING SYSTEM                       |        101 | prof_smith@vtu.edu |
+|  2 | Charan         | WEB AND MOBILE APPLICATION DEVELOPMENT |        102 | prof_jones@vtu.edu |
+|  3 | Ananya         | DATABASE MANAGEMENT                    |        101 | prof_smith@vtu.edu |
+|  5 | Priya          | DATA STRUCTURES                        |        104 | prof_leila@vtu.edu |
+|  4 | Rahul          | DIGITAL ELECTRONICS                    |        103 | prof_kumar@vtu.edu |
++----+----------------+----------------------------------------+------------+--------------------+
 5 rows in set (0.001 sec)
 
 #LEFT JOIN
  SELECT s.id,s.name AS Student_Name,c.Course_name FROM students s LEFT JOIN Course c ON s.id=c.Student_ID;
-+----+--------------+----------------------------------------+
-| id | Student_Name | Course_name                            |
-+----+--------------+----------------------------------------+
-|  1 | Hemesh       | OPERATING SYSTEM                       |
-|  2 | Aarav        | WEB AND MOBILE APPLICATION DEVELOPMENT |
-|  3 | Meghana      | DATABASE MANAGEMENT                    |
-|  5 | Sneha        | DATA STRUCTURES                        |
-|  4 | Rohit        | DIGITAL ELECTRONICS                    |
-+----+--------------+----------------------------------------+
++----+----------------+----------------------------------------+
+| id | Student_Name   | Course_name                            |
++----+----------------+----------------------------------------+
+|  1 | Vignesh Varma  | OPERATING SYSTEM                       |
+|  2 | Charan         | WEB AND MOBILE APPLICATION DEVELOPMENT |
+|  3 | Ananya         | DATABASE MANAGEMENT                    |
+|  5 | Priya          | DATA STRUCTURES                        |
+|  4 | Rahul          | DIGITAL ELECTRONICS                    |
++----+----------------+----------------------------------------+
 5 rows in set (0.001 sec)
 
 #RIGHT JOIN
 SELECT s.id,s.name AS Student_Name,c.Course_name FROM students s RIGHT JOIN Course c ON s.id=c.Student_ID;
-+------+--------------+----------------------------------------+
-| id   | Student_Name | Course_name                            |
-+------+--------------+----------------------------------------+
-|    1 | Hemesh       | OPERATING SYSTEM                       |
-|    2 | Aarav        | WEB AND MOBILE APPLICATION DEVELOPMENT |
-|    3 | Meghana      | DATABASE MANAGEMENT                    |
-|    5 | Sneha        | DATA STRUCTURES                        |
-|    4 | Rohit        | DIGITAL ELECTRONICS                    |
-+------+--------------+----------------------------------------+
++------+----------------+----------------------------------------+
+| id   | Student_Name   | Course_name                            |
++------+----------------+----------------------------------------+
+|    1 | Vignesh Varma  | OPERATING SYSTEM                       |
+|    2 | Charan         | WEB AND MOBILE APPLICATION DEVELOPMENT |
+|    3 | Ananya         | DATABASE MANAGEMENT                    |
+|    5 | Priya          | DATA STRUCTURES                        |
+|    4 | Rahul          | DIGITAL ELECTRONICS                    |
++------+----------------+----------------------------------------+
 5 rows in set (0.001 sec)
